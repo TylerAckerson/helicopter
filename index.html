@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="game-canvas"></canvas>
+
+    <script src="./lib/util.js"></script>
+    <script src="./lib/game.js"></script>
+    <script src="./lib/gameview.js"></script>
+    <script src="./lib/movingObject.js"></script>
+    <script src="./lib/block.js"></script>
+    <!-- <script src="./lib/ship.js"></script> -->
+    <!-- <script src="./lib/bullet.js"></script> --> -->
+
+    <script>
+      var canvasElement = document.getElementById("game-canvas");
+      var ctx = canvasElement.getContext("2d");
+      canvasElement.height = window.innerHeight;
+      canvasElement.width = window.innerWidth;
+      var game = new Helicopter.Game(
+        canvasElement.height,
+        canvasElement.width
+      );
+
+      var gameView = new Helicopter.GameView(game, ctx);
+
+      gameView.start(canvasElement);
+    </script>
+  </body>
+</html>
