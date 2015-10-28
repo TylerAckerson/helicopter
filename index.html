@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <script src="./underscore.min.js"></script>
+    <link rel="stylesheet" href="application.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
     <canvas id="game-canvas"></canvas>
@@ -20,8 +21,10 @@
     <script>
       var canvasElement = document.getElementById("game-canvas");
       var ctx = canvasElement.getContext("2d");
-      canvasElement.height = window.innerHeight;
-      canvasElement.width = window.innerWidth;
+      // canvasElement.height = window.innerHeight;
+      // canvasElement.width = window.innerWidth;
+      canvasElement.height = 500;
+      canvasElement.width = 500;
       var game = new Helicopter.Game(
         canvasElement.height,
         canvasElement.width
