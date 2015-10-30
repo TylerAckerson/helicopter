@@ -1,8 +1,10 @@
 (function () {
+
   if (typeof Whirlybird === "undefined") {
     window.Whirlybird = {};
   }
-
+  
+  // require('newrelic');
   // var _ = require('underscore');
 
   Util = window.Whirlybird.Util = {};

@@ -154,16 +154,21 @@
   };
 
   Game.prototype.createNewGame = function(e){
-
-    // left = canvasElement.offset().left;
-    // right = left + canvasElement.width;
-    // pageX
     e.target.removeEventListener('click', this.createNewGame);
-    gameView.newGame();
-    // if ((e.clientX >= posX && e.clientX <= posX + this.width) &&
-    //      (e.clientY >= posY && e.clientY <= posY + this.height)) {
-    //        debugger;
-    //  }
+    var button = game.endGameButton;
+    var buttonX = button.pos[0];
+    var buttonY = button.pos[1];
+
+    var clickX = e.clientX - canvasElement.offsetLeft;
+    var clickY = e.clientY - canvasElement.offsetTop;
+    // left = canvasElement.offsetLeft;
+    // // right = left + canvasElement.width;
+    // // pageX
+
+    if ((clickX >= buttonX && clickX <= buttonX + game.endGameButton.width) &&
+         (clickY >= buttonY && clickY <= buttonY + game.endGameButton.height)) {
+           gameView.newGame();
+     }
   };
 
   Game.wrap = function(pos) {
