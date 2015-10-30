@@ -3,6 +3,8 @@
     window.Whirlybird = {};
   }
 
+  // var _ = require('underscore');
+
   Util = window.Whirlybird.Util = {};
 
   window.Whirlybird.Util.inherits = function(childClass, parentClass) {
