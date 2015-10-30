@@ -143,30 +143,27 @@
   };
 
   Game.prototype.displayButton = function(ctx) {
-    var endGameButton = new window.Whirlybird.Button( {
+    this.endGameButton = new window.Whirlybird.Button( {
       pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
       game: this,
       text: "Play again?"
     });
 
-    endGameButton.draw(ctx);
+    this.endGameButton.draw(ctx);
+    canvasElement.addEventListener('click', this.createNewGame);
+  };
 
-    canvasElement.addEventListener('click', function(e){
-      var posX = this.pos[0];
-      var posY = this.pos[1];
+  Game.prototype.createNewGame = function(e){
 
-      // console.log("pos X: " + posX);
-      // console.log("pos Y: " + posY);
-      //
-      // console.log("clientX: " + e.clientX);
-      // console.log("offsetX: " + e.offsetX);
-      // console.log("clientY: " + e.clientY);
-
-      if ((e.clientX >= posX && e.clientX <= posX + this.width) &&
-           (e.clientY >= posY && e.clientY <= posY + this.height)) {
-             debugger;
-       }
-    }.bind(endGameButton));
+    // left = canvasElement.offset().left;
+    // right = left + canvasElement.width;
+    // pageX
+    e.target.removeEventListener('click', this.createNewGame);
+    gameView.newGame();
+    // if ((e.clientX >= posX && e.clientX <= posX + this.width) &&
+    //      (e.clientY >= posY && e.clientY <= posY + this.height)) {
+    //        debugger;
+    //  }
   };
 
   Game.wrap = function(pos) {
