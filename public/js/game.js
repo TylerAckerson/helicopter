@@ -109,7 +109,7 @@
     // this.wallRate = 2;
   };
 
-  Game.prototype.checkCollisions = function () {
+  Game.prototype.checkCollisions = function() {
   var game = this;
 
   this.allNonCopterObjects().forEach(function (obj1) {
@@ -137,6 +137,7 @@
   };
 
   Game.prototype.endGame = function(ctx){
+    this.displayBackground(ctx);
     this.displayScore(ctx);
     this.displayButton(ctx);
   };
@@ -147,13 +148,13 @@
 
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "darkred";
     ctx.fillText("GAME OVER", (this.DIM_Y/2), (this.DIM_X/2));
     ctx.fillText(scoreDisplay, (this.DIM_Y/2), ((this.DIM_X/2 + 30)));
   };
 
   Game.prototype.displayButton = function(ctx) {
-    this.endGameButton = new window.Whirlybird.Button( {
+    this.endGameButton = new window.Whirlybird.Box( {
       pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
       game: this,
       text: "Play again?"
@@ -161,6 +162,20 @@
 
     this.endGameButton.draw(ctx);
     canvasElement.addEventListener('click', this.createNewGame);
+  };
+
+  Game.prototype.displayBackground = function(ctx) {
+    var background = document.getElementById("background-image");
+
+    ctx.drawImage(
+      background,
+      this.DIM_Y/2 - 100,
+      this.DIM_X/2 - 45,
+      200,
+      150
+    );
+
+    ctx.fill();
   };
 
   Game.prototype.createNewGame = function(e){

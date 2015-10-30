@@ -3,21 +3,23 @@
     window.Whirlybird = {};
   }
 
-  var Button = window.Whirlybird.Button = function(options) {
-    this.height = Button.HEIGHT;
-    this.width = Button.WIDTH;
+  var Box = window.Whirlybird.Box = function(options) {
+    this.height = options.height || Box.HEIGHT;
+    this.width = options.width || Box.WIDTH;
     this.pos = options.pos;
     this.game = options.game;
-    this.text = options.text;
+    this.col = options.col || Box.COL;
+    this.text = options.text || "";
 
     return this;
   };
 
-  Button.HEIGHT = 40;
-  Button.WIDTH = 100;
+  Box.HEIGHT = 40;
+  Box.WIDTH = 100;
+  Box.COL = "darkred";
 
-  Button.prototype.drawButton = function(ctx) {
-    ctx.fillStyle = "red";
+  Box.prototype.drawBox = function(ctx) {
+    ctx.fillStyle = this.col;
     ctx.textAlign = "center";
     ctx.beginPath();
     ctx.rect(
@@ -30,7 +32,7 @@
     ctx.fill();
   };
 
-  Button.prototype.drawText = function(ctx) {
+  Box.prototype.drawText = function(ctx) {
     ctx.font = "15px Arial";
     ctx.textAlign = "center";
     ctx.strokeStyle = "white";
@@ -38,8 +40,8 @@
     ctx.stroke();
   };
 
-  Button.prototype.draw = function(ctx) {
-    this.drawButton(ctx);
+  Box.prototype.draw = function(ctx) {
+    this.drawBox(ctx);
     this.drawText(ctx);
   };
 
