@@ -92,6 +92,7 @@
     if (this.shouldDraw){
       ctx.clearRect(0, 0, this.DIM_Y, this.DIM_X);
       this.allObjects().forEach(function(object) { object.draw(ctx); });
+      this.updateScore(ctx);
     }
   };
 
@@ -121,9 +122,18 @@
   };
 
   Game.prototype.step = function () {
-    this.score += 1;
     this.moveObjects();
     this.checkCollisions();
+  };
+
+  Game.prototype.updateScore = function() {
+    this.score += 1;
+    var scoreDisplay = "Score: " + this.score;
+
+    ctx.font = "20px Arial";
+    ctx.textAlign = "left";
+    ctx.fillStyle = "white";
+    ctx.fillText(scoreDisplay, 20, this.DIM_X - 20);
   };
 
   Game.prototype.endGame = function(ctx){
@@ -161,9 +171,6 @@
 
     var clickX = e.clientX - canvasElement.offsetLeft;
     var clickY = e.clientY - canvasElement.offsetTop;
-    // left = canvasElement.offsetLeft;
-    // // right = left + canvasElement.width;
-    // // pageX
 
     if ((clickX >= buttonX && clickX <= buttonX + game.endGameButton.width) &&
          (clickY >= buttonY && clickY <= buttonY + game.endGameButton.height)) {
