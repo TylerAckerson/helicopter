@@ -11,7 +11,7 @@
     window.Whirlybird.MovingObject.call(this, options);
   };
 
-  Wall.COLOR = "#D3D3D3";
+  Wall.COLOR = "darkgray";
   Wall.HEIGHT = 500;
   Wall.WIDTH = 5;
 

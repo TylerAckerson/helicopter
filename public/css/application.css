@@ -2,13 +2,15 @@ html {
   text-align: center;
   font-family: fantasy;
   font-size: x-large;
+  background-color: black;
 }
 
 h1 {
   margin-bottom: 0;
+  color: white;
 }
 
 #game-canvas {
-  border: 5px solid crimson;
+  border: 5px solid steelblue;
   background: url("http://i385.photobucket.com/albums/oo294/AzTIcA/OceanBackground.jpg");
 }

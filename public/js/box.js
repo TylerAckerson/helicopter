@@ -16,7 +16,7 @@
 
   Box.HEIGHT = 40;
   Box.WIDTH = 100;
-  Box.COL = "darkred";
+  Box.COL = "steelblue";
 
   Box.prototype.drawBox = function(ctx) {
     ctx.fillStyle = this.col;

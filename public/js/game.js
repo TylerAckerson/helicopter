@@ -148,7 +148,7 @@
 
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
-    ctx.fillStyle = "darkred";
+    ctx.fillStyle = "white";
     ctx.fillText("GAME OVER", (this.DIM_Y/2), (this.DIM_X/2));
     ctx.fillText(scoreDisplay, (this.DIM_Y/2), ((this.DIM_X/2 + 30)));
   };
@@ -167,6 +167,8 @@
   Game.prototype.displayBackground = function(ctx) {
     var background = document.getElementById("background-image");
 
+    // ctx.strokeStyle = "white";
+    // ctx.stroke();
     ctx.drawImage(
       background,
       this.DIM_Y/2 - 100,
