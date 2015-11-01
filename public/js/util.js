@@ -5,7 +5,7 @@
   }
   
   // require('newrelic');
-  // var _ = require('underscore');
+  // var _ = require('underdistance');
 
   Util = window.Whirlybird.Util = {};
 

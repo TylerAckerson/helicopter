@@ -23,7 +23,7 @@
     this.bottomWalls = [];
     this.addWalls();
 
-    this.score = 0;
+    this.distance = 0;
     this.shouldDraw = true;
   };
 
@@ -98,7 +98,7 @@
     if (this.shouldDraw){
       ctx.clearRect(0, 0, this.DIM_Y, this.DIM_X);
       this.allObjects().forEach(function(object) { object.draw(ctx); });
-      this.updateScore(ctx);
+      this.updateDistance(ctx);
     }
   };
 
@@ -132,31 +132,31 @@
     this.checkCollisions();
   };
 
-  Game.prototype.updateScore = function() {
-    this.score += 1;
-    var scoreDisplay = "Score: " + this.score;
+  Game.prototype.updateDistance = function() {
+    this.distance += 1;
+    var distanceDisplay = "Distance: " + this.distance;
 
     ctx.font = "20px Arial";
     ctx.textAlign = "left";
     ctx.fillStyle = "white";
-    ctx.fillText(scoreDisplay, 20, this.DIM_X - 20);
+    ctx.fillText(distanceDisplay, 20, this.DIM_X - 20);
   };
 
   Game.prototype.endGame = function(ctx){
     this.displayBackground(ctx);
-    this.displayScore(ctx);
+    this.displayDistance(ctx);
     this.displayButton(ctx);
   };
 
-  Game.prototype.displayScore = function(ctx){
+  Game.prototype.displayDistance = function(ctx){
     this.shouldDraw = false;
-    var scoreDisplay = "Score: " + this.score;
+    var distanceDisplay = "Distance: " + this.distance;
 
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
     ctx.fillStyle = "white";
     ctx.fillText("GAME OVER", (this.DIM_Y/2), (this.DIM_X/2));
-    ctx.fillText(scoreDisplay, (this.DIM_Y/2), ((this.DIM_X/2 + 30)));
+    ctx.fillText(distanceDisplay, (this.DIM_Y/2), ((this.DIM_X/2 + 30)));
   };
 
   Game.prototype.displayButton = function(ctx) {
