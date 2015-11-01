@@ -30,7 +30,6 @@
       this.game.draw(this.ctx);
     }.bind(this), 20);
 
-
     this.wallInterval = setInterval(function(){
       game.changeWallVectors();
     }, 2000);

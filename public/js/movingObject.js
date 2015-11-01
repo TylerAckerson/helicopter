@@ -10,6 +10,7 @@
     this.col = options.col;
     this.vel = 5;
     this.game = options.game;
+    this.idx = options.idx;
   };
 
   Mo.prototype.draw = function(ctx) {
@@ -51,6 +52,6 @@
 
   Mo.prototype.moveWall = function(){
     this.pos[0] -= this.vel;
-    window.Whirlybird.Game.wrapWall(this.pos);
+    window.Whirlybird.Game.wrapWall(this.pos, this.idx);
   };
 })();

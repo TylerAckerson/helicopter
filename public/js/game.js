@@ -46,13 +46,13 @@
     for (var i = 0; i < wallsCount; i ++) {
       topPos = [this.DIM_Y + (5 * i), this.wallOffset/4 - (this.DIM_X - 50)];
       this.topWalls.push(new window.Whirlybird.Wall(
-        {pos: topPos,  game: this })
+        {pos: topPos,  game: this, idx: i })
       );
 
       var bottomPos = topPos.slice();
       bottomPos[1] = topPos[1] + this.DIM_Y + this.topBottomSpacing;
       this.bottomWalls.push(new window.Whirlybird.Wall(
-        {pos: bottomPos, game: this })
+        {pos: bottomPos, game: this, idx: i })
       );
 
       this.wallOffset += (this.wallRate * this.wallDirection);
@@ -82,10 +82,10 @@
     blockPos[1] = newY;
   };
 
-  Game.prototype.regenerateWall = function(pos) {
+  Game.prototype.regenerateWall = function(pos, idx) {
     pos[0] = 770 + Whirlybird.Wall.WIDTH;
 
-    if (pos[0] < 0) {
+    if (pos[1] < 0) {
       //top wall
       //pos[1] stuff
     } else {
@@ -221,12 +221,12 @@
     }
   };
 
-  Game.wrapWall = function(pos) {
+  Game.wrapWall = function(pos, idx) {
     var posX = pos[0];
     var posY = pos[1];
 
     if (posX < -20) {
-      game.regenerateWall(pos);
+      game.regenerateWall(pos, idx);
     }
   };
 
