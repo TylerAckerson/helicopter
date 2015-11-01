@@ -135,11 +135,13 @@
   Game.prototype.updateDistance = function() {
     this.distance += 1;
     var distanceDisplay = "Distance: " + this.distance;
+    var bestDisplay = "Best: " + gameView.highScore;
 
     ctx.font = "20px Arial";
     ctx.textAlign = "left";
     ctx.fillStyle = "white";
     ctx.fillText(distanceDisplay, 20, this.DIM_X - 20);
+    ctx.fillText(bestDisplay, this.DIM_Y - 110, this.DIM_X - 20);
   };
 
   Game.prototype.endGame = function(ctx){

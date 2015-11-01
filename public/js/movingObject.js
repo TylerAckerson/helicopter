@@ -39,7 +39,7 @@
     // collision detected
     if (( xDistLeft <= -2 && xDistRight <= -2 ) &&
        (  yDistTop <= -2 || yDistBottom <= -2 ))  {
-         
+
       gameView.end();
     }
   };

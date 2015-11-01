@@ -6,6 +6,7 @@
   var GameView = window.Whirlybird.GameView = function(game, ctx) {
     this.game = game;
     this.ctx = ctx;
+    this.highScore = 0;
     this.copter = this.game.addCopter();
 
     this.game.drawStart(ctx);
@@ -36,6 +37,8 @@
   };
 
   GameView.prototype.end = function(){
+    this.updateHighScore();
+
     window.removeEventListener('mousedown', this.addInterval);
     window.removeEventListener('mouseup', this.clearInterval);
     clearInterval(this.gameInterval);
@@ -48,7 +51,6 @@
   };
 
   GameView.prototype.newGame = function(){
-    console.log(this.gameInteral);
     if (!this.gameInterval){
       this.game = new Whirlybird.Game();
       this.ctx.clearRect(0, 0, game.DIM_Y, game.DIM_X);
@@ -57,4 +59,11 @@
       this.start();
     }
   };
+
+  GameView.prototype.updateHighScore = function(){
+    if (this.game.distance > this.highScore){
+      this.highScore = this.game.distance;
+    }
+  };
+
 })();
