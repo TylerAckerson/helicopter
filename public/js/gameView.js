@@ -7,6 +7,8 @@
     this.game = game;
     this.ctx = ctx;
     this.copter = this.game.addCopter();
+
+    this.game.drawStart(ctx);
   };
 
   GameView.prototype.addInterval = function(){
@@ -42,12 +44,12 @@
     clearInterval(this.wallInterval);
 
     game.shouldDraw = false;
-
     this.game.endGame(this.ctx);
   };
 
   GameView.prototype.newGame = function(){
-    if (this.gameInterval === null){
+    console.log(this.gameInteral);
+    if (!this.gameInterval){
       this.game = new Whirlybird.Game();
       this.ctx.clearRect(0, 0, game.DIM_Y, game.DIM_X);
       this.copter = this.game.addCopter();

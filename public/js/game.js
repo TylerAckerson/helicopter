@@ -34,6 +34,12 @@
     return copter;
   };
 
+  Game.prototype.drawStart = function(){
+    this.displayBackground(ctx);
+    this.displayStartButton(ctx);
+  };
+
+
   Game.prototype.addWalls = function(){
     wallsCount = Math.ceil(this.DIM_Y / 5);
 
@@ -154,21 +160,31 @@
   };
 
   Game.prototype.displayButton = function(ctx) {
-    this.endGameButton = new window.Whirlybird.Box( {
+    this.startGameButton = new window.Whirlybird.Box( {
       pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
       game: this,
       text: "Play again?"
     });
 
-    this.endGameButton.draw(ctx);
+    this.startGameButton.draw(ctx);
+    canvasElement.addEventListener('click',this.createNewGame);
+  };
+
+  Game.prototype.displayStartButton = function(ctx) {
+    this.startGameButton = new window.Whirlybird.Box( {
+      pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
+      game: this,
+      width: 100,
+      text: "Start Game"
+    });
+
+    this.startGameButton.draw(ctx);
     canvasElement.addEventListener('click', this.createNewGame);
   };
 
   Game.prototype.displayBackground = function(ctx) {
     var background = document.getElementById("background-image");
 
-    // ctx.strokeStyle = "white";
-    // ctx.stroke();
     ctx.drawImage(
       background,
       this.DIM_Y/2 - 100,
@@ -182,15 +198,15 @@
 
   Game.prototype.createNewGame = function(e){
     e.target.removeEventListener('click', this.createNewGame);
-    var button = game.endGameButton;
+    var button = game.startGameButton;
     var buttonX = button.pos[0];
     var buttonY = button.pos[1];
 
     var clickX = e.clientX - canvasElement.offsetLeft;
     var clickY = e.clientY - canvasElement.offsetTop;
 
-    if ((clickX >= buttonX && clickX <= buttonX + game.endGameButton.width) &&
-         (clickY >= buttonY && clickY <= buttonY + game.endGameButton.height)) {
+    if ((clickX >= buttonX && clickX <= buttonX + game.startGameButton.width) &&
+         (clickY >= buttonY && clickY <= buttonY + game.startGameButton.height)) {
            gameView.newGame();
      }
   };
