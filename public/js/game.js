@@ -30,8 +30,6 @@
   Game.prototype.addCopter = function(){
     copter = new window.Whirlybird.Copter({pos: [100, 100], game: this});
     this.copters.push(copter);
-
-    return copter;
   };
 
   Game.prototype.drawStart = function(){
@@ -144,7 +142,20 @@
     ctx.fillText(bestDisplay, this.DIM_Y - 110, this.DIM_X - 20);
   };
 
+  Game.prototype.animateExplosion = function(ctx){
+    copterPos = this.copters[0].pos;
+    copterPos[0] += 90;
+
+    var explosion = new Whirlybird.Explosion(
+      { pos: copterPos,
+        game: this } );
+
+    explosion.draw(ctx);
+  };
+
   Game.prototype.endGame = function(ctx){
+    this.animateExplosion(ctx);
+
     this.displayBackground(ctx);
     this.displayDistance(ctx);
     this.displayButton(ctx);

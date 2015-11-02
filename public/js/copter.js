@@ -9,11 +9,12 @@
 
     this.pos = params.pos;
     this.game = params.game;
-    this.sprite = new Whirlybird.Sprite({ url:'images/heli.png',
+    this.sprite = new Whirlybird.Sprite({ imageId:'copter-sprite',
                                           pos: this.pos,
                                          size: [this.height, this.width],
                                        frames: [0, 1, 2, 3] } );
 
+    return this;
   };
 
   Copter.prototype.draw = function(ctx) {

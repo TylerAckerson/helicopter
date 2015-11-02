@@ -4,7 +4,7 @@
   }
 
   var Sprite = window.Whirlybird.Sprite = function(options) {
-    this.url = options.url;
+    this.imageId = options.imageId;
     this.pos = options.pos;
     this.size = options.size;
     this.frames = options.frames;
@@ -26,8 +26,7 @@
     var posX = this.pos[0];
     var posY = this.pos[1];
 
-    image = document.getElementById("copter-sprite");
-
+    image = document.getElementById(this.imageId);
     ctx.drawImage( image,
                    offsetX, offsetY,
                    this.size[1], this.size[0],
