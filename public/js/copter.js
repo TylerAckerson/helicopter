@@ -22,11 +22,11 @@
   };
 
   Copter.prototype.move = function() {
-    this.pos[1] += 4;
+    this.pos[1] += 5;
   };
 
   Copter.prototype.lift = function() {
-    this.pos[1] -= 8;
+    this.pos[1] -= 10;
   };
 
 }());
