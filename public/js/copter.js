@@ -4,8 +4,8 @@
   }
 
   var Copter = window.Whirlybird.Copter = function(params) {
-    this.height = 57;
-    this.width = 114;
+    this.height = 45;
+    this.width = 73;
 
     this.pos = params.pos;
     this.game = params.game;
