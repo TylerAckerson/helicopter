@@ -16,7 +16,7 @@
 
     this.wallOffset = 0;
     this.wallDirection = 1;
-    this.wallRate = 1;
+    this.wallRate = 0;
     this.topBottomSpacing = 100;
 
     this.topWalls = [];
@@ -53,7 +53,7 @@
         {pos: bottomPos, game: this, idx: i })
       );
 
-      this.wallOffset += (this.wallRate * this.wallDirection);
+      this.wallOffset += this.wallDirection;
     }
   };
 
@@ -83,12 +83,17 @@
   Game.prototype.regenerateWall = function(pos, idx) {
     pos[0] = 770 + Whirlybird.Wall.WIDTH;
 
+    neighborWallIdx = idx - 1;
+    if (neighborWallIdx < 0) { neighborWallIdx = game.topWalls.length - 1; }
+
     if (pos[1] < 0) {
       //top wall
-      //pos[1] stuff
+      neighborY = game.topWalls[neighborWallIdx].pos[1];
+      pos[1] = neighborY - (neighborY * game.wallRate);
     } else {
       //bottom wall
-      //pos[1] stuff
+      neighborY = game.bottomWalls[neighborWallIdx].pos[1];
+      pos[1] = neighborY - (neighborY * game.wallRate);
     }
   };
 
@@ -109,8 +114,7 @@
 
   Game.prototype.changeWallVectors = function(){
     this.wallDirection *= -1;
-    // this.wallOffset = 0;
-    // this.wallRate = 2;
+    this.wallRate += 0.001;
   };
 
   Game.prototype.checkCollisions = function() {
@@ -217,7 +221,7 @@
 
     var clickX = e.clientX - canvasElement.offsetLeft - 4;
     var clickY = e.clientY - canvasElement.offsetTop - 6;
-    
+
     if ((clickX >= buttonX && clickX <= buttonX + game.startGameButton.width) &&
          (clickY >= buttonY && clickY <= buttonY + game.startGameButton.height)) {
            gameView.newGame();
