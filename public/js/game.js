@@ -215,9 +215,9 @@
     var buttonX = button.pos[0];
     var buttonY = button.pos[1];
 
-    var clickX = e.clientX - canvasElement.offsetLeft - 6;
-    var clickY = e.clientY - canvasElement.offsetTop + 27;
-
+    var clickX = e.clientX - canvasElement.offsetLeft - 4;
+    var clickY = e.clientY - canvasElement.offsetTop - 6;
+    
     if ((clickX >= buttonX && clickX <= buttonX + game.startGameButton.width) &&
          (clickY >= buttonY && clickY <= buttonY + game.startGameButton.height)) {
            gameView.newGame();

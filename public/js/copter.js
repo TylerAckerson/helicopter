@@ -6,8 +6,6 @@
   var Copter = window.Whirlybird.Copter = function(params) {
     this.height = 57;
     this.width = 114;
-    // this.height = 54;
-    // this.width = 132;
 
     this.pos = params.pos;
     this.game = params.game;
@@ -25,11 +23,11 @@
   };
 
   Copter.prototype.move = function() {
-    this.pos[1] += 5;
+    this.pos[1] += 7;
   };
 
   Copter.prototype.lift = function() {
-    this.pos[1] -= 10;
+    this.pos[1] -= 13;
   };
 
 }());
