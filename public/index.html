@@ -13,6 +13,13 @@
   <body>
     <h1>Whirlybird</h1>
     <canvas id="game-canvas"></canvas>
+    
+    <div class="info">
+      <article> Created by
+        <a href="http://tylerackerson.com">Tyler Ackerson</a>. View on
+        <a href="https://github.com/TylerAckerson/whirlybird">Github</a>
+      </article>
+    </div>
 
     <div style="display:none;">
       <img id="background-image" src="images/diamond-plate-metal-background-03.jpg"
@@ -29,6 +36,7 @@
             width="200" height="100">
     </div>
 
+
     <script src="js/util.js"></script>
     <script src="js/game.js"></script>
     <script src="js/gameView.js"></script>
@@ -39,7 +47,6 @@
     <script src="js/copter.js"></script>
     <script src="js/box.js"></script>
     <script src="js/explosion.js"></script>
-
     <script>
       var canvasElement = document.getElementById("game-canvas");
       var ctx = canvasElement.getContext("2d");
@@ -54,13 +61,5 @@
 
       var gameView = new Whirlybird.GameView(game, ctx);
     </script>
-
-    <div class="info">
-      <article> Created by
-        <a href="http://tylerackerson.com">Tyler Ackerson</a>. View on
-        <a href="https://github.com/TylerAckerson/whirlybird">Github</a>
-      </article>
-    </div>
-
   </body>
 </html>
