@@ -5,7 +5,7 @@ Whirlybird is browser game inspired by the flash game Helicopter.
 - Helicopter animation visually enhances gameplay
 
 ##TODO
-- [ ] Add animation for collision/ explosion
-- [ ] Improve helicopter animation
+- [X] Add animation for collision/ explosion
+- [X] Improve helicopter animation
 - [ ] Dynamically reduce spacing between top and bottom walls
 - [ ] Improve Start menu

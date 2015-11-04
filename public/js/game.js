@@ -140,7 +140,7 @@
 
     ctx.font = "20px Arial";
     ctx.textAlign = "left";
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "red";
     ctx.fillText(distanceDisplay, 20, this.DIM_X - 20);
     ctx.fillText(bestDisplay, this.DIM_Y - 110, this.DIM_X - 20);
   };
@@ -183,10 +183,10 @@
     this.shouldDraw = false;
     var distanceDisplay = "Distance: " + this.distance;
 
-    ctx.font = "30px Arial";
+    ctx.font = "28px Arial";
     ctx.textAlign = "center";
-    ctx.fillStyle = "white";
-    ctx.fillText("GAME OVER", (this.DIM_Y/2), (this.DIM_X/2));
+    ctx.fillStyle = "black";
+    ctx.fillText("Game Over", (this.DIM_Y/2), (this.DIM_X/2));
     ctx.fillText(distanceDisplay, (this.DIM_Y/2), ((this.DIM_X/2 + 30)));
   };
 

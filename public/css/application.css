@@ -24,5 +24,6 @@ h1 {
 
 #game-canvas {
   border: 5px solid steelblue;
-  background: url("http://i385.photobucket.com/albums/oo294/AzTIcA/OceanBackground.jpg");
+  background: url("../images/cloud-bg.jpg");
+  /*background: url("http://i385.photobucket.com/albums/oo294/AzTIcA/OceanBackground.jpg");*/
 }

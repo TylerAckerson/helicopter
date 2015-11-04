@@ -12,7 +12,7 @@
 
   };
 
-  Block.COLOR = "darkgray";
+  Block.COLOR = "slategray";
   Block.HEIGHT = 150;
   Block.WIDTH = 20;
 
