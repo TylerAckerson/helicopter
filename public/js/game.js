@@ -158,11 +158,13 @@
   };
 
   Game.prototype.endGame = function(ctx){
-    this.animateExplosion(ctx);
+    var exploded = this.animateExplosion(ctx);
 
-    this.displayBackground(ctx);
-    this.displayDistance(ctx);
-    this.displayButton(ctx);
+    setTimeout(function(){
+      this.displayBackground(ctx);
+      this.displayDistance(ctx);
+      this.displayButton(ctx);
+    }.bind(this), 600);
   };
 
   Game.prototype.displayDistance = function(ctx){

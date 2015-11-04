@@ -13,7 +13,7 @@
     this.sprite = new Whirlybird.Sprite({ imageId: 'explosion',
                                               pos: this.pos,
                                              size: [this.height, this.width],
-                                           frames: [0, 1, 2, 3] } );
+                                           frames: [0, 1, 2, 3, 4, 5, 6, 7, 8] } );
 
   };
 
@@ -22,14 +22,19 @@
 
     var i = 0;
     var animate = function() {
-      console.log(i);
-      if (i < 4) {
+      if (i < 8) {
+
+        ctx.clearRect(0, 0, game.DIM_Y, game.DIM_X);
+        this.game.allNonCopterObjects().forEach(function(object) {
+          object.draw(ctx);
+        });
+
         this.sprite.update(this.pos);
         this.sprite.render(ctx);
         i++;
       }
     };
-    
+
     setInterval(animate.bind(this), 60);
   };
 
