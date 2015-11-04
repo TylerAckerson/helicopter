@@ -32,6 +32,11 @@
     this.copters.push(copter);
   };
 
+  Game.prototype.drawStart = function(){
+    this.displayStartButton(ctx);
+  };
+
+
   Game.prototype.addWalls = function(){
     wallsCount = Math.ceil(this.DIM_Y / 5);
 
@@ -142,7 +147,8 @@
 
   Game.prototype.animateExplosion = function(ctx){
     copterPos = this.copters[0].pos;
-    copterPos[0] += 90;
+    copterPos[0] -= 15;
+    copterPos[1] -= 45;
 
     var explosion = new Whirlybird.Explosion(
       { pos: copterPos,
@@ -174,30 +180,25 @@
     this.startGameButton = new window.Whirlybird.Box( {
       pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
       game: this,
+      col: "red",
       text: "Play again?"
     });
 
     this.startGameButton.draw(ctx);
-    canvasElement.addEventListener('click',this.createNewGame);
+    canvasElement.addEventListener('mousedown',this.createNewGame);
   };
 
-  Game.prototype.drawStart = function(ctx) {
-
-
+  Game.prototype.displayStartButton = function(ctx) {
     this.startGameButton = new window.Whirlybird.Box( {
-      pos: [((this.DIM_Y/2) - 180), ((this.DIM_X/2 - 60))],
+      pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
       game: this,
       col: "red",
-      width: 380,
-      height: 80,
-      textXOffset: 190,
-      textYOffset: 55,
-      textSize: 40,
-      text: "Click to Start Game"
+      width: 100,
+      text: "Start Game"
     });
 
     this.startGameButton.draw(ctx);
-    canvasElement.addEventListener('click', this.createNewGame);
+    canvasElement.addEventListener('mousedown', this.createNewGame);
   };
 
   Game.prototype.displayBackground = function(ctx) {
@@ -215,7 +216,7 @@
   };
 
   Game.prototype.createNewGame = function(e){
-    e.target.removeEventListener('click', this.createNewGame);
+    e.target.removeEventListener('mousedown', this.createNewGame);
     var button = game.startGameButton;
     var buttonX = button.pos[0];
     var buttonY = button.pos[1];

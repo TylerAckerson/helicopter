@@ -50,6 +50,7 @@
   };
 
   GameView.prototype.newGame = function(){
+    console.log(this.gameInterval);
     if (!this.gameInterval){
       this.game = new Whirlybird.Game();
       this.ctx.clearRect(0, 0, game.DIM_Y, game.DIM_X);
