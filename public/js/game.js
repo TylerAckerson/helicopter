@@ -32,12 +32,6 @@
     this.copters.push(copter);
   };
 
-  Game.prototype.drawStart = function(){
-    this.displayBackground(ctx);
-    this.displayStartButton(ctx);
-  };
-
-
   Game.prototype.addWalls = function(){
     wallsCount = Math.ceil(this.DIM_Y / 5);
 
@@ -187,12 +181,19 @@
     canvasElement.addEventListener('click',this.createNewGame);
   };
 
-  Game.prototype.displayStartButton = function(ctx) {
+  Game.prototype.drawStart = function(ctx) {
+
+
     this.startGameButton = new window.Whirlybird.Box( {
-      pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
+      pos: [((this.DIM_Y/2) - 180), ((this.DIM_X/2 - 60))],
       game: this,
-      width: 100,
-      text: "Start Game"
+      col: "red",
+      width: 380,
+      height: 80,
+      textXOffset: 190,
+      textYOffset: 55,
+      textSize: 40,
+      text: "Click to Start Game"
     });
 
     this.startGameButton.draw(ctx);
