@@ -145,26 +145,38 @@
     ctx.fillText(bestDisplay, this.DIM_Y - 110, this.DIM_X - 20);
   };
 
-  Game.prototype.animateExplosion = function(ctx){
+  Game.prototype.animateExplosions = function(ctx){
     copterPos = this.copters[0].pos;
     copterPos[0] -= 15;
     copterPos[1] -= 45;
 
-    var explosion = new Whirlybird.Explosion(
-      { pos: copterPos,
-        game: this } );
+    explosions = [];
 
-    explosion.draw(ctx);
+    explosions.push(new Whirlybird.Explosion(
+      { pos: copterPos,
+        game: this } ));
+
+    explosions.push(new Whirlybird.Explosion(
+      { pos: [copterPos[0] + 25, copterPos[1] - 15],
+        game: this } ));
+
+    explosions.push(new Whirlybird.Explosion(
+      { pos: [copterPos[0] - 20, copterPos[1] + 10],
+        game: this } ));
+
+    explosions.forEach(function(explosion) {
+        explosion.draw(ctx);
+    });
   };
 
   Game.prototype.endGame = function(ctx){
-    var exploded = this.animateExplosion(ctx);
+    this.animateExplosions(ctx);
 
     setTimeout(function(){
       this.displayBackground(ctx);
       this.displayDistance(ctx);
       this.displayButton(ctx);
-    }.bind(this), 600);
+    }.bind(this), 500);
   };
 
   Game.prototype.displayDistance = function(ctx){

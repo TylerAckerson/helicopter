@@ -21,14 +21,16 @@
     var idx = this._index;
     var frame = this.frames[idx % max];
 
-    var offsetY;
+    var offsetY, offsetX;
+
     if (this.frames.length > 4){
+      offsetX = (Math.floor(idx / 4) * this.size[0]);
       offsetY = (Math.floor(idx / 4) * this.size[1]);
     } else {
+      offsetX = frame * this.size[1];
       offsetY = 0;
     }
 
-    var offsetX = frame * this.size[1];
     var posX = this.pos[0];
     var posY = this.pos[1];
 

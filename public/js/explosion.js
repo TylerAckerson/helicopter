@@ -22,7 +22,7 @@
 
     var i = 0;
     var animate = function() {
-      if (i < 8) {
+      if (i < 15) {
 
         ctx.clearRect(0, 0, game.DIM_Y, game.DIM_X);
         this.game.allNonCopterObjects().forEach(function(object) {
@@ -35,7 +35,7 @@
       }
     };
 
-    setInterval(animate.bind(this), 60);
+    setInterval(animate.bind(this), 20);
   };
 
 }());
