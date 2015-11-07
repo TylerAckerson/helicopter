@@ -9,7 +9,7 @@
     this.highScore = 0;
     this.copter = this.game.addCopter();
 
-    this.game.drawStart(ctx);
+    this.game.displayStart(ctx);
   };
 
   GameView.prototype.addInterval = function(){

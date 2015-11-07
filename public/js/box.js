@@ -39,7 +39,7 @@
   };
 
   Box.prototype.drawText = function(ctx) {
-    ctx.font = this.textSize + "px Arial";
+    ctx.font = this.textSize + "px Fantasy";
     ctx.textAlign = "center";
     ctx.strokeStyle = "white";
     ctx.strokeText(this.text, this.pos[0] + this.textXOffset, this.pos[1] + this.textYOffset);

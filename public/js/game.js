@@ -32,11 +32,6 @@
     this.copters.push(copter);
   };
 
-  Game.prototype.drawStart = function(){
-    this.displayStartButton(ctx);
-  };
-
-
   Game.prototype.addWalls = function(){
     wallsCount = Math.ceil(this.DIM_Y / 5);
 
@@ -138,7 +133,7 @@
     var distanceDisplay = "Distance: " + this.distance;
     var bestDisplay = "Best: " + gameView.highScore;
 
-    ctx.font = "20px Arial";
+    ctx.font = "20px Fantasy";
     ctx.textAlign = "left";
     ctx.fillStyle = "red";
     ctx.fillText(distanceDisplay, 20, this.DIM_X - 20);
@@ -183,7 +178,7 @@
     this.shouldDraw = false;
     var distanceDisplay = "Distance: " + this.distance;
 
-    ctx.font = "28px Arial";
+    ctx.font = "bolder 28px Fantasy";
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     ctx.fillText("Game Over", (this.DIM_Y/2), (this.DIM_X/2));
@@ -202,7 +197,15 @@
     canvasElement.addEventListener('mousedown',this.createNewGame);
   };
 
-  Game.prototype.displayStartButton = function(ctx) {
+  Game.prototype.displayStart = function(ctx) {
+    ctx.font = "28px Fantasy";
+    ctx.textAlign = "center";
+    ctx.strokeStyle = "black";
+    ctx.strokeText("Click and hold left mouse button to go up.",
+                                      this.DIM_Y/2, this.DIM_X/2);
+    ctx.strokeText("Release to go down.", this.DIM_Y/2, this.DIM_X/2 + 34);
+    ctx.stroke();
+
     this.startGameButton = new window.Whirlybird.Box( {
       pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
       game: this,
