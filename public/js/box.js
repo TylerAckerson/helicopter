@@ -50,6 +50,4 @@
     this.drawBox(ctx);
     this.drawText(ctx);
   };
-
-
 }());
