@@ -12,7 +12,7 @@ Whirlybird is browser game inspired by the flash game Helicopter.
 
 
 ## Play Whirlybird
-  [whirlybird.tylerackerson.com][whirlybird]
+  [Live Link][whirlybird]
 
 ## Enhancements
 - [ ] Create custom helicopter/ animation
