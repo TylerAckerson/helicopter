@@ -1,12 +1,22 @@
 # whirlybird  
 Whirlybird is browser game inspired by the flash game Helicopter.
-
 - Uses HTML5 Canvas to provide high-performance graphics
 - Helicopter animation visually enhances gameplay
 
-##TODO
-- [X] Add animation for collision/ explosion
-- [X] Improve helicopter animation
+![start-menu]
+![gameplay]
+
+[start-menu]: ./images/stat-menu.png
+[gameplay]: ./images/gameplay.png
+
+
+## playing whirlybird
+  [whirlybird.tylerackerson.com][whirlybird]
+
+## enhancements
+- [ ] Create custom helicopter/ animation
 - [ ] Dynamically reduce spacing between top and bottom walls
 - [ ] Improve Start menu
 - [ ] Add sound
+
+[whirlybird]: http://whirlybird.tylerackerson.com/

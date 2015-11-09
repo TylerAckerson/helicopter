@@ -128,7 +128,7 @@
     this.checkCollisions();
   };
 
-  Game.prototype.updateDistance = function() {
+  Game.prototype.updateDistance = function(ctx) {
     this.distance += 1;
     var distanceDisplay = "Distance: " + this.distance;
     var bestDisplay = "Best: " + gameView.highScore;
@@ -168,53 +168,45 @@
     this.animateExplosions(ctx);
 
     setTimeout(function(){
-      this.displayBackground(ctx);
       this.displayDistance(ctx);
       this.displayButton(ctx);
-    }.bind(this), 500);
+    }.bind(this), 1250);
+
   };
 
   Game.prototype.displayDistance = function(ctx){
     this.shouldDraw = false;
     var distanceDisplay = "Distance: " + this.distance;
 
-    ctx.font = "bolder 28px Fantasy";
+    ctx.font = "28px Fantasy";
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
-    ctx.fillText("Game Over", (this.DIM_Y/2), (this.DIM_X/2));
-    ctx.fillText(distanceDisplay, (this.DIM_Y/2), ((this.DIM_X/2 + 30)));
+    ctx.fillText("Game Over.", this.DIM_Y/2, this.DIM_X/2 - 50);
+    ctx.fillText(distanceDisplay, this.DIM_Y/2, this.DIM_X/2 - 15);
+    ctx.fill();
   };
 
   Game.prototype.displayButton = function(ctx) {
-    this.startGameButton = new window.Whirlybird.Box( {
-      pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
-      game: this,
-      col: "red",
-      text: "Play again?"
-    });
+    ctx.fillStyle = "red";
+    ctx.fillText("Click anywhere to play again.", this.DIM_Y/2, this.DIM_X/2 + 55);
+    ctx.fill();
 
-    this.startGameButton.draw(ctx);
     canvasElement.addEventListener('mousedown',this.createNewGame);
   };
 
   Game.prototype.displayStart = function(ctx) {
     ctx.font = "28px Fantasy";
     ctx.textAlign = "center";
-    ctx.strokeStyle = "black";
-    ctx.strokeText("Click and hold left mouse button to go up.",
-                                      this.DIM_Y/2, this.DIM_X/2);
-    ctx.strokeText("Release to go down.", this.DIM_Y/2, this.DIM_X/2 + 34);
-    ctx.stroke();
+    ctx.fillStyle = "black";
+    ctx.fillText("Click and hold left mouse button to go up.",
+                                      this.DIM_Y/2, this.DIM_X/2 - 50);
+    ctx.fillText("Release to go down.", this.DIM_Y/2, this.DIM_X/2 - 15);
+    ctx.fill();
 
-    this.startGameButton = new window.Whirlybird.Box( {
-      pos: [((this.DIM_Y/2) - 50), ((this.DIM_X/2) + 50)],
-      game: this,
-      col: "red",
-      width: 100,
-      text: "Start Game"
-    });
+    ctx.fillStyle = "red";
+    ctx.fillText("Click anywhere to start game.", this.DIM_Y/2, this.DIM_X/2 + 55);
+    ctx.fill();
 
-    this.startGameButton.draw(ctx);
     canvasElement.addEventListener('mousedown', this.createNewGame);
   };
 
@@ -234,17 +226,7 @@
 
   Game.prototype.createNewGame = function(e){
     e.target.removeEventListener('mousedown', this.createNewGame);
-    var button = game.startGameButton;
-    var buttonX = button.pos[0];
-    var buttonY = button.pos[1];
-
-    var clickX = e.clientX - canvasElement.offsetLeft - 4;
-    var clickY = e.clientY - canvasElement.offsetTop - 6;
-
-    if ((clickX >= buttonX && clickX <= buttonX + game.startGameButton.width) &&
-         (clickY >= buttonY && clickY <= buttonY + game.startGameButton.height)) {
-           gameView.newGame();
-     }
+    gameView.newGame();
   };
 
   Game.wrap = function(pos) {

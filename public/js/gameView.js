@@ -38,10 +38,13 @@
   GameView.prototype.end = function(){
     this.updateHighScore();
 
+    setTimeout(function(){
+        this.gameInterval = null;
+    }.bind(this), 1500);
+
     window.removeEventListener('mousedown', this.addInterval);
     window.removeEventListener('mouseup', this.clearInterval);
     clearInterval(this.gameInterval);
-    this.gameInterval = null;
     clearInterval(this.mouseInterval);
     clearInterval(this.wallInterval);
 
