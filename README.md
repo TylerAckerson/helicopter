@@ -7,8 +7,8 @@ Whirlybird is browser game inspired by the flash game Helicopter.
 
 ![gameplay]
 
-[start-menu]: ./images/start-menu.png
-[gameplay]: ./images/gameplay.png
+[start-menu]: ./public/images/start-menu.png
+[gameplay]: ./public/images/gameplay.png
 
 
 ## playing whirlybird
