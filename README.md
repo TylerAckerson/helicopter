@@ -34,6 +34,8 @@ Whirlybird is browser game inspired by the flash game Helicopter.
 
   Animation for the blades of the helicopter are created by cycling through multiple, slightly-changed images of the helicopter and drawing a new image (frame) every time. This is similar to how other objects are drawn, except the drawing itself is actually changed as time passes. A separate "Sprite" class is used to cycle through the helicopter images and determine which frame should be drawn.
 
+  ![copter]
+
   [copter]: ./public/images/heli_3.png
 
 ### Game control
@@ -42,6 +44,8 @@ Whirlybird is browser game inspired by the flash game Helicopter.
 ### Explosion animation
   When a collision is detected between the helicopter and either a wall or a block, 3 separate explosion animations are created around the position of the helicopter. Again, the Sprite class is used here to iterate through specific frames and re-draw the elements on the screen every 20 milliseconds. The explosion has 15 frames, as opposed to the helicopter's 4.
 
+  ![explosion]
+  
   [explosion]: ./public/images/explosion.png
 
 ## Enhancements
